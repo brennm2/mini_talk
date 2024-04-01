@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 11:16:58 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/03/28 16:49:21 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/04/01 13:51:52 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	signal_hendler (int	signum)
 {
 	static int				i = 0;
 	static unsigned char	c = 0;
+	int y;
 	unsigned char *str;
 	static int flag;
 
@@ -30,18 +31,21 @@ void	signal_hendler (int	signum)
 	if (i == 8)
 	{
 		str = ft_strjoin(str, &c);
-		//ft_printf("server: %s\n", str);
+		y++;
 		flag++;
 		if (c == '\0')
 		{
-			ft_printf("END\n");
-			str = ft_strjoin(str, "\0\n");
+			//ft_printf("END\n");
 			ft_printf("%s", str);
 			free(str);
 			flag = 0;
 		}
+		//str = ft_strjoin(str, "\0\n");
+		//ft_printf("%s", str);
+		//ft_printf("%c", c);
 		i = 0;
 		c = 0;
+		y = 0;
 		//ft_printf("%c", c);
 	}
 
